@@ -47,7 +47,6 @@ const NewsRoute = () => {
     }
   }, [isAdmin]);
 
-  if (!user) return <Navigate to="/login" />;
 
   return isAdmin ? (
     <PostManager token={token} notyf={notyf} organizations={organizations} />

@@ -50,11 +50,11 @@ const NavbarComponent = ({ notyf }) => {
               <Nav className="justify-content-end flex-grow-1 pe-3 align-items-center">
                 <Nav.Link as={NavLink} to="/" className="text-white display-5">Home</Nav.Link>
 
-                {user && (
+
                   <Nav.Link as={NavLink} to="/organizations" className="text-white">
                     {isAdmin ? 'Org Management' : 'About Organizations'}
                   </Nav.Link>
-                )}
+
 
                 {/* <Nav.Link as={Link} to="/organizations" className="text-white">About Organizations</Nav.Link> */}
                 {/* <Nav.Link as={Link} to="/" className="text-white">News & Events</Nav.Link> */}

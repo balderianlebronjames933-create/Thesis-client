@@ -1,16 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import '../css/Home.css'; 
 import HeroSection from '../components/HeroSection';
 import ActiveOrganizations from '../components/ActiveOrganizations';
 import NewsEvents from '../components/NewsEvents';
 import Footer from '../components/Footer';
+import FeaturedCarousel from '../components/FeaturedCarousel';
 
 const Home = () => {
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    const token = localStorage.getItem('token');
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/posts`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const data = await res.json();
+                setPosts(data);
+            } catch (err) {
+                console.error("Failed to fetch");
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchPosts();
+    }, [token]);
+
     return (
         <div className="home-wrapper">
             {/* 1. Hero Section */}
             <HeroSection />
+
+            <FeaturedCarousel posts={posts} isLoading={loading}/>
 
             {/* 2. Active Organizations Section */}
             <ActiveOrganizations />
