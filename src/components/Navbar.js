@@ -1,77 +1,112 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar, Nav, Container, Button, Offcanvas } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, NavLink } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
+import RegisterModal from '../pages/Register';
+import LoginModal from '../pages/Login';
+import '../css/Navbar.css'; // Custom CSS for Navbar
 
-const NavbarComponent = () => {
+
+const NavbarComponent = ({ notyf }) => {
   const { user, isAdmin, logout } = useUser();
   const navigate = useNavigate();
 
+  // Modal States
+  const [showRegister, setShowRegister] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+
+
+  const openLogin = () => { setShowRegister(false); setShowLogin(true); };
+  const openRegister = () => { setShowLogin(false); setShowRegister(true); };
+
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate('/'); // Changed from /login to /
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="mb-3" sticky="top">
-      <Container fluid>
-        <Navbar.Brand as={Link} to="/">
-          🎬 RottenMangoes
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="offcanvasNavbar" />
-        <Navbar.Offcanvas
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-          placement="end"
-        >
-          <Offcanvas.Header closeButton className="bg-dark text-white">
-            <Offcanvas.Title id="offcanvasNavbarLabel">
-              🎬 RottenMangoes
-            </Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body className="bg-dark">
-            <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Nav.Link as={Link} to="/" className="text-white">
-                Home
-              </Nav.Link>
+    <>
+      <Navbar variant="dark" expand="lg" className="solid-nav" sticky="top">
+        <Container fluid className="p-0">
+          <Navbar.Brand as={Link} to="/" className="ms-3">
+            <img src="/University_of_Rizal.png" width="40" height="40" className="me-2" alt="Logo" />
+            UNITE
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="offcanvasNavbar" />
+          <Navbar.Offcanvas id="offcanvasNavbar" placement="end" className="solid-nav">
+            <Offcanvas.Header closeButton className="border-bottom border-white-50">
+              <Offcanvas.Title className="text-white">
+                <img
+                  src="/University_of_Rizal.png"
+                  width="40"
+                  height="40"
+                  className="d-inline-block align-top me-2" // 'me-2' adds a margin after the logo
+                  alt="UNITE logo"
+                />
 
-              {isAdmin && (
-                <Nav.Link as={Link} to="/movies" className="text-white">
-                  Dashboard
-                </Nav.Link>
-              )}
+                UNITE</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Nav className="justify-content-end flex-grow-1 pe-3 align-items-center">
+                <Nav.Link as={NavLink} to="/" className="text-white display-5">Home</Nav.Link>
 
-              {user && !isAdmin && (
-                <Nav.Link as={Link} to="/movies" className="text-white">
-                  Movies
-                </Nav.Link>
-              )}
-
-              {!user && (
-                <>
-                  <Nav.Link as={Link} to="/login" className="text-white">
-                    Login
+                {user && (
+                  <Nav.Link as={NavLink} to="/organizations" className="text-white">
+                    {isAdmin ? 'Org Management' : 'About Organizations'}
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/register" className="text-white">
-                    Register
-                  </Nav.Link>
-                </>
-              )}
+                )}
 
-              {user && (
-                <Button
-                  variant="outline-light"
-                  onClick={handleLogout}
-                  className="mt-2"
-                >
-                  Logout
-                </Button>
-              )}
-            </Nav>
-          </Offcanvas.Body>
-        </Navbar.Offcanvas>
-      </Container>
-    </Navbar>
+                {/* <Nav.Link as={Link} to="/organizations" className="text-white">About Organizations</Nav.Link> */}
+                {/* <Nav.Link as={Link} to="/" className="text-white">News & Events</Nav.Link> */}
+
+                <Nav.Link as={NavLink} to="/news" className="text-white">
+                  {isAdmin ? 'Post Management' : 'News & Events'}
+                </Nav.Link>
+
+                {/* CONSOLIDATED TAB LOGIC */}
+                {user ? (
+                  <Nav className="ms-lg-auto align-items-center">
+                    <span className="text-secondary welcome-text">
+                      Welcome, <strong>{user.firstName || 'Student'} {user.lastName}</strong>
+                    </span>
+                    <Button
+                      variant="outline-light"
+                      size="sm"
+                      onClick={handleLogout}
+                      className="logout-btn rounded-pill px-3"
+                    >
+                      Logout
+                    </Button>
+                  </Nav>
+                ) : (
+                  <Button
+                    variant="warning" // Gold/Yellow accent
+                    className="ms-lg-3 rounded-pill px-4 fw-bold"
+                    onClick={() => setShowLogin(true)}
+                  >
+                    Portal Login
+                  </Button>
+                )}
+              </Nav>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
+        </Container>
+      </Navbar>
+
+      {/* Modals rendered outside the Navbar structure */}
+      <RegisterModal
+        show={showRegister}
+        handleClose={() => setShowRegister(false)}
+        openLogin={openLogin} // New Prop
+        notyf={notyf}
+      />
+      <LoginModal
+        show={showLogin}
+        handleClose={() => setShowLogin(false)}
+        openRegister={openRegister} // New Prop
+        notyf={notyf}
+      />
+    </>
   );
 };
 

@@ -1,0 +1,51 @@
+.news-card {
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.news-card:hover {
+  transform: scale(1.01);
+}
+
+.news-image-placeholder {
+  background: #dee2e6;
+  height: 100%;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #adb5bd;
+  font-weight: bold;
+}
+
+.event-date-box {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-left: 4px solid #dc3545; /* Red accent for events */
+  padding: 8px;
+  min-width: 70px;
+  border-radius: 4px;
+}
+
+.event-item {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.event-item:last-child {
+  border-bottom: none;
+}
+
+.news-card, .event-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.news-card:hover, .event-item:hover {
+  transform: translateY(-3px);
+  /* Optional: add a slight shadow for news cards */
+}
+
+.event-item:hover .event-date-box {
+  background-color: #dc3545; /* Makes the date box pop on hover */
+  color: white;
+}

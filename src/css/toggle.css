@@ -1,0 +1,21 @@
+/* Custom styling for the status switch */
+.form-check-input:checked {
+    background-color: #198754; /* Success Green */
+    border-color: #198754;
+}
+
+.form-check-input:not(:checked) {
+    background-color: #a59a9a; /* Danger Red */
+    border-color: #dbd2d3;
+}
+
+/* Optional: Add a subtle shadow to the handle */
+.form-check-input {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-check-input:active {
+    filter: brightness(90%);
+    transform: scale(1.1);
+}

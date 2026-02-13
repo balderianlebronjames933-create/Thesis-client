@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+/* Fix for orphaned backdrops or stuck body classes */
+body:not(.modal-open) {
+    overflow: auto !important;
+    padding-right: 0 !important;
+}
+
+.modal-backdrop.show {
+    opacity: 0.5;
+}
