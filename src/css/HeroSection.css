@@ -1,5 +1,5 @@
 .hero-container {
-    background: url('../assets/hero-1.jpg') no-repeat center center;
+    background: url('../assets/urst-bg.JPG') no-repeat center center;
     background-size: cover;
     min-height: 80vh; /* Adjust to 100vh if you want it to cover the entire viewport */
     width: 100vw;    /* Forces width to viewport width */
