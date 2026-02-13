@@ -1,0 +1,201 @@
+/* Navbar.css - University Portal Solid Design */
+
+:root {
+  --urs-blue: #0038a8;
+  --urs-gold: #ffd700;
+  --urs-dark-blue: #002b80;
+  --white: #ffffff;
+}
+
+/* 1. Main Navbar Container */
+.solid-nav {
+  background-color: var(--urs-blue) !important;
+  border-bottom: 4px solid var(--urs-gold) !important; /* Distinct university stripe */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.05rem 0 !important;
+  z-index: 1050;
+}
+
+/* 2. Brand and Logo */
+.navbar-brand {
+  font-weight: 700;
+  color: var(--white) !important;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  transition: font-size 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.navbar-brand img {
+    font-size: 1rem !important;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 3. Navigation Links */
+.nav-link {
+  color: var(--white) !important;
+  font-weight: 500;
+  padding: 0.5rem 1.2rem !important;
+  margin: 0 0.2rem;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--urs-gold) !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+/* 4. Portal Login Button */
+.btn-warning {
+  background-color: var(--urs-gold) !important;
+  border: 2px solid #e5ac00 !important;
+  color: var(--urs-dark-blue) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  border-radius: 50px !important; /* Rounded pill shape */
+  padding: 0.5rem 1.5rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-warning:hover {
+  background-color: var(--white) !important;
+  color: var(--urs-blue) !important;
+  border-color: var(--white) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+/* 5. Logout Button (Outline Style) */
+.btn-outline-light {
+  border-radius: 50px !important;
+  border-width: 2px !important;
+  font-weight: 600 !important;
+}
+
+/* 6. User Welcome Text */
+.text-secondary strong {
+  color: var(--urs-gold) !important;
+  font-weight: 600;
+}
+
+/* 7. Mobile Sidebar (Offcanvas) */
+.offcanvas {
+  background-color: var(--urs-blue) !important;
+  color: var(--white) !important;
+  width: 300px !important;
+}
+
+.offcanvas-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem !important;
+}
+
+.offcanvas-title {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+
+.offcanvas-body {
+  padding: 1.5rem !important;
+}
+
+/* Adjust mobile links to be stacked clearly */
+@media (max-width: 991px) {
+  .nav-link {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.8rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .btn-warning, .btn-outline-light {
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: 0 !important;
+  }
+}
+
+/* 8. Fix for the Navbar Toggler (Hamburger Icon) */
+.navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25) !important;
+}
+
+.welcome-text {
+  font-size: 0.9rem !important; /* Slightly smaller for mobile */
+  margin-bottom: 0.5rem; /* Space before button on mobile */
+   color: var(--white) !important;
+}
+
+.logout-btn {
+  font-size: 0.85rem !important;
+  padding: 0.4rem 1rem !important;
+}
+
+
+/* 2. Desktop Styles (Large screens - 992px and up) */
+@media (min-width: 992px) {
+  .navbar-brand {
+    font-size: 2rem !important; /* Much larger for desktop branding */
+  }
+
+  .nav-link {
+    font-size: 1.25rem !important; /* Approx fs-4 for better desktop readability */
+  }
+  
+  /* Optional: Make the Welcome text grow too */
+  .text-secondary {
+    font-size: 1.1rem !important;
+   
+  }
+
+  .welcome-text {
+    font-size: 1.25rem !important; /* Larger for desktop */
+    margin-bottom: 0 !important; /* Remove bottom margin when side-by-side */
+    margin-right: 1.5rem !important; /* Add spacing between name and button */
+     color: var(--white) !important;
+  }
+
+  .logout-btn {
+    font-size: 1rem !important; /* Standard size for desktop */
+    padding: 0.5rem 1.5rem !important; /* Wider button */
+  }
+
+      .nav-link.active::after {
+        width: 5px; /* Vertical line instead of underline on mobile */
+        height: 100%;
+        left: 0;
+        bottom: 0;
+    }
+  
+}
+
+
+/* 1. Base Active Link Styling */
+.nav-link.active {
+    color: var(--urs-gold) !important; /* Change text color to gold when active */
+    position: relative;
+}
+
+/* 2. Create the Underline using a pseudo-element */
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    width: 70%; /* Width of the underline */
+    height: 3px; /* Thickness */
+    bottom: 2px; /* Distance from the text */
+    left: 15%; /* Centers the 70% width underline */
+    background-color: var(--urs-gold);
+    border-radius: 2px;
+}
+

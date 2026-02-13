@@ -1,0 +1,25 @@
+.org-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.org-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+
+.org-image-wrapper {
+    overflow: hidden;
+    height: 200px;
+}
+
+.org-image-wrapper img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.org-card:hover .org-image-wrapper img {
+    transform: scale(1.1);
+}

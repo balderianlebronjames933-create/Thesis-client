@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Form, Button, Modal, InputGroup } from 'react-bootstrap';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
-  console.log("ENV BASE URL:", process.env.REACT_APP_API_BASE_URL);
-
-const Register = ({ notyf }) => {
-  const navigate = useNavigate();
+const RegisterModal = ({ show, handleClose, openLogin, notyf }) => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,39 +17,76 @@ const Register = ({ notyf }) => {
     const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ firstName, lastName, email, password }),
     });
 
     if (res.ok) {
       notyf.success('Registered successfully');
-      navigate('/login');
+      handleClose(); // Close modal on success
     } else {
       const { error } = await res.json();
       notyf.error(error || 'Registration failed');
     }
   };
 
-
-
-
   return (
-    <Form onSubmit={handleSubmit}>
-      <h2>Register</h2>
-      <Form.Group className="mb-3">
-        <Form.Label>Email</Form.Label>
-        <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} required />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} required />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Confirm Password</Form.Label>
-        <Form.Control type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} required />
-      </Form.Group>
-      <Button type="submit">Register</Button>
-    </Form>
+    <Modal show={show} onHide={handleClose} centered>
+      <Modal.Header closeButton><Modal.Title>Register</Modal.Title></Modal.Header>
+      <Modal.Body>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label>First Name</Form.Label>
+            <Form.Control type="text" value={firstName} onChange={e => setFirstName(e.target.value)} required />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Last Name</Form.Label>
+            <Form.Control type="text" value={lastName} onChange={e => setLastName(e.target.value)} required />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Email</Form.Label>
+            <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} required />
+          </Form.Group>
+
+          <Form.Label>Password</Form.Label>
+          <InputGroup className="mb-3">
+            <Form.Control
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              required
+            />
+            <Button variant="outline-secondary" onClick={() => setShowPassword(!showPassword)}>
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </Button>
+          </InputGroup>
+
+          <Form.Label>Confirm Password</Form.Label>
+          <InputGroup className="mb-3">
+            <Form.Control
+              type={showPassword ? "text" : "password"}
+              value={confirmPassword}
+              onChange={e => setConfirmPassword(e.target.value)}
+              required
+            />
+          </InputGroup>
+
+          <Button variant="primary" type="submit" className="w-100">Register</Button>
+        </Form>
+        <div className="text-center mt-3">
+          <small>
+            Already have an account?{' '}
+            <span
+              className="text-primary"
+              style={{ cursor: 'pointer', textDecoration: 'underline' }}
+              onClick={openLogin}
+            >
+              Login here
+            </span>
+          </small>
+        </div>
+      </Modal.Body>
+    </Modal>
   );
 };
 
-export default Register;
+export default RegisterModal;

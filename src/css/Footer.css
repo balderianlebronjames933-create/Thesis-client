@@ -1,0 +1,41 @@
+.footer-section {
+  background-color: #1a1a1a; /* Dark theme to match your Navbar */
+  color: #adb5bd;
+}
+
+.text-light-muted {
+  color: #999;
+  line-height: 1.6;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #adb5bd;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #0d6efd; /* Blue hover to match Bootstrap Primary */
+}
+
+.social-icon {
+  color: #adb5bd;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.social-icon:hover {
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.footer-divider {
+  border-color: #333;
+}
+
+.contact-info li span {
+  font-size: 0.95rem;
+}
