@@ -9,7 +9,7 @@ const AdminOrgManagement = ({ token, notyf }) => {
     const [orgs, setOrgs] = useState([]);
     const [selectedOrg, setSelectedOrg] = useState(null); // Track org to edit
     const [orgToDelete, setOrgToDelete] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [ /*loading*/,setLoading] = useState(true);
 
     const loadData = async () => {
         try {

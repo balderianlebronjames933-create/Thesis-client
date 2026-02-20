@@ -8,7 +8,7 @@ const PostViewModal = ({ show, onHide, post, notyf }) => {
     if (!post) return null;
 
     const isEvent = post.type === 'event';
-    const eventDate = post.eventDate ? new Date(post.eventDate) : null;
+
 
     return (
         <Modal show={show} onHide={onHide} size="xl" centered scrollable>

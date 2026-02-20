@@ -27,7 +27,7 @@ const notyf = new Notyf({ duration: 3000, position: { x: 'right', y: 'top' } });
 
 // Helper for Organization Logic
 const OrgsRoute = () => {
-  const { user, isAdmin, token } = useUser();
+  const {  isAdmin, token } = useUser();
 
   // Logic: If Admin, show the Management page. Otherwise, show the Directory.
   return isAdmin ?

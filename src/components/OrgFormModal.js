@@ -1,4 +1,4 @@
-import  { useState, useEffect, useRef } from 'react';
+import  { useState, useEffect, useRef, useCallback } from 'react';
 import { Save, X, Layers, Trash2 } from 'lucide-react';
 import * as bootstrap from 'bootstrap';
 
@@ -16,25 +16,53 @@ const OrgFormModal = ({ token, refreshData, notyf, editingOrg, setEditingOrg }) 
     const chartInputRef = useRef(null);
     const galleryInputRef = useRef(null);
 
-    useEffect(() => {
-        if (editingOrg) {
-            setFormData({
-                name: editingOrg.name || '',
-                description: editingOrg.description || '',
-                fbPageLink: editingOrg.fbPageLink || ''
-            });
-        } else {
-            resetForm();
-        }
-    }, [editingOrg]);
+    // useEffect(() => {
+    //     if (editingOrg) {
+    //         setFormData({
+    //             name: editingOrg.name || '',
+    //             description: editingOrg.description || '',
+    //             fbPageLink: editingOrg.fbPageLink || ''
+    //         });
+    //     } else {
+    //         resetForm();
+    //     }
+    // }, [editingOrg]);
 
-    const resetForm = () => {
+    // const resetForm = () => {
+    //     setFormData({ name: '', description: '', fbPageLink: '' });
+    //     setLogo(null);
+    //     setOrgChart(null);
+    //     setGalleryFiles([]);
+
+    //     // Clear all file inputs
+    //     if (fileInputRef.current) fileInputRef.current.value = "";
+    //     if (chartInputRef.current) chartInputRef.current.value = "";
+    //     if (galleryInputRef.current) galleryInputRef.current.value = "";
+    //     if (bannerInputRef.current) bannerInputRef.current.value = "";
+
+    //     const modalElement = document.getElementById('orgModal');
+    //     const modalInstance = bootstrap.Modal.getInstance(modalElement);
+    //     if (modalInstance) modalInstance.hide();
+
+    //     setTimeout(() => {
+    //         document.body.classList.remove('modal-open');
+    //         document.body.style = '';
+    //         const backdrops = document.querySelectorAll('.modal-backdrop');
+    //         backdrops.forEach(b => b.remove());
+    //     }, 100);
+
+    //     setEditingOrg(null);
+    //     setBanner(null);
+
+    // };
+
+
+    const resetForm = useCallback(() => {
         setFormData({ name: '', description: '', fbPageLink: '' });
         setLogo(null);
         setOrgChart(null);
         setGalleryFiles([]);
 
-        // Clear all file inputs
         if (fileInputRef.current) fileInputRef.current.value = "";
         if (chartInputRef.current) chartInputRef.current.value = "";
         if (galleryInputRef.current) galleryInputRef.current.value = "";
@@ -53,8 +81,20 @@ const OrgFormModal = ({ token, refreshData, notyf, editingOrg, setEditingOrg }) 
 
         setEditingOrg(null);
         setBanner(null);
+    }, [setEditingOrg]); // setEditingOrg is stable, so this function stays stable
 
-    };
+    // 3. Now it is safe to include in the dependency array
+    useEffect(() => {
+        if (editingOrg) {
+            setFormData({
+                name: editingOrg.name || '',
+                description: editingOrg.description || '',
+                fbPageLink: editingOrg.fbPageLink || ''
+            });
+        } else {
+            resetForm();
+        }
+    }, [editingOrg, resetForm]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
