@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import  { useEffect, useState, useCallback } from 'react';
 import * as bootstrap from 'bootstrap';
 import { Edit3, Trash2, PlusCircle } from 'lucide-react';
 import { fetchAdminOrgs } from '../services/orgService';
@@ -11,15 +11,35 @@ const AdminOrgManagement = ({ token, notyf }) => {
     const [orgToDelete, setOrgToDelete] = useState(null);
     const [ /*loading*/,setLoading] = useState(true);
 
-    const loadData = async () => {
+    // const loadData = async () => {
+    //     try {
+    //         const data = await fetchAdminOrgs(token);
+    //         setOrgs(data);
+    //     } finally { setLoading(false); }
+    // };
+
+    // useEffect(() => { loadData(); }, [token]);
+
+
+    // 2. Wrap loadData in useCallback
+    const loadData = useCallback(async () => {
         try {
+            setLoading(true); // Good practice to set loading here
             const data = await fetchAdminOrgs(token);
             setOrgs(data);
-        } finally { setLoading(false); }
-    };
+        } catch (err) {
+            notyf.error("Failed to fetch organizations");
+        } finally { 
+            setLoading(false); 
+        }
+    }, [token, notyf]); // Dependencies for loadData
 
-    useEffect(() => { loadData(); }, [token]);
+    // 3. Include loadData in the dependency array
+    useEffect(() => { 
+        loadData(); 
+    }, [loadData]);
 
+    
     const handleToggleStatus = async (id) => {
         const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/organizations/status/${id}`, {
             method: 'PATCH', headers: { 'Authorization': `Bearer ${token}` }

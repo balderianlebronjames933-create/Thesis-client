@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import  { useState, useEffect, useCallback } from 'react';
 import { Plus, Edit, Trash2,  Star, Search } from 'lucide-react';
 import PostFormModal from '../components/PostFormModal';
 import DeleteConfirmModal from '../components/DeleteConfirmModal';
@@ -10,9 +10,27 @@ const PostManager = ({ token, notyf, organizations }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [postToDelete, setPostToDelete] = useState(null);
 
-    const fetchPosts = async () => {
+    // const fetchPosts = async () => {
+    //     try {
+    //         // Change the URL to include /admin
+    //         const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/posts/admin`, {
+    //             headers: { 'Authorization': `Bearer ${token}` }
+    //         });
+    //         const data = await res.json();
+    //         setPosts(data);
+    //     } catch (err) {
+    //         notyf.error("Failed to load posts");
+    //     }
+    // };
+
+    // useEffect(() => {
+    //     fetchPosts();
+    // }, []);
+
+
+// 2. Wrap fetchPosts in useCallback
+    const fetchPosts = useCallback(async () => {
         try {
-            // Change the URL to include /admin
             const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/posts/admin`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -21,11 +39,12 @@ const PostManager = ({ token, notyf, organizations }) => {
         } catch (err) {
             notyf.error("Failed to load posts");
         }
-    };
+    }, [token, notyf]); // Only recreate if token or notyf change
 
+    // 3. Now include fetchPosts safely in the dependency array
     useEffect(() => {
         fetchPosts();
-    }, []);
+    }, [fetchPosts]);
 
     const handleToggleStatus = async (id) => {
         try {
