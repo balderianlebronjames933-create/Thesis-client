@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Column 1: Brand/About */}
           <Col lg={4} md={6}>
             <div className="footer-brand mb-3">
-              <h3 className="fw-bold text-white">🎬 RottenMangoes</h3>
+              <h3 className="fw-bold text-white">UNITE</h3>
             </div>
             <p className="text-light-muted">
               The official portal for student organizations at the University of Rizal System - Taytay. 

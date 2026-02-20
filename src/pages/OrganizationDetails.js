@@ -23,14 +23,14 @@ const OrganizationDetails = () => {
             {/* 1. HERO SECTION (Option B) */}
             <div className="position-relative" style={{ height: '350px', overflow: 'hidden' }}>
                 <div 
-                    className="position-absolute w-100 h-100" 
-                    style={{ 
-                        backgroundImage: `url(${org.banner || 'https://via.placeholder.com/1200x400?text=Organization+Banner'})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        filter: 'brightness(0.7)'
-                    }}
-                />
+                        className="position-absolute w-100 h-100" 
+                        style={{ 
+                            backgroundImage: "url('../assets/nso-bg.png')",
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            filter: 'brightness(0.7)'
+                        }}
+                    />
                 <div className="container h-100 position-relative d-flex align-items-end pb-4">
                     <div className="d-flex align-items-center gap-4 mb-n5 bg-white p-3 rounded-4 shadow-lg border">
                         <img 
