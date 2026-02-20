@@ -1,7 +1,7 @@
-import React from 'react';
+
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaTwitter, FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import {  FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import '../css/Footer.css';
 
 const Footer = () => {

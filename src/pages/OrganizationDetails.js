@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Facebook, Info, Users, Image as ImageIcon, Maximize2, ExternalLink } from 'lucide-react';
+import { Facebook, Info, Users, Maximize2 } from 'lucide-react';
 import Footer from '../components/Footer';
 
 const OrganizationDetails = () => {

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import  { useState, useRef } from 'react';
 import { Notyf } from 'notyf';
 
 const notyf = new Notyf({ position: { x: 'right', y: 'top' } });

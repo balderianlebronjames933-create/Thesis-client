@@ -1,6 +1,6 @@
-import React from 'react';
+
 import { Modal, Button, Badge, Row, Col } from 'react-bootstrap';
-import { FaCalendarAlt, FaMapMarkerAlt, FaUser, FaClock } from 'react-icons/fa';
+import {  FaMapMarkerAlt, FaUser, FaClock } from 'react-icons/fa';
 import CommentSection from './CommentSection';
 
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import * as bootstrap from 'bootstrap';
 import { Calendar, MapPin } from 'lucide-react';
 import { Container } from 'react-bootstrap';

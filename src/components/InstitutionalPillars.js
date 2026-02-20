@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Container, Row, Col } from 'react-bootstrap';
 import { Target, Eye, Star, ShieldCheck } from 'lucide-react';
 import pillarsBg from '../assets/pillars-bg.jpg'; // 1. Import your background image

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Save, X, Image as ImageIcon, Layers, Trash2 } from 'lucide-react';
+import  { useState, useEffect, useRef } from 'react';
+import { Save, X, Layers, Trash2 } from 'lucide-react';
 import * as bootstrap from 'bootstrap';
 
 const OrgFormModal = ({ token, refreshData, notyf, editingOrg, setEditingOrg }) => {

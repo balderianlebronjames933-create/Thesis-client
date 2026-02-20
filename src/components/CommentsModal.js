@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Modal, ListGroup } from 'react-bootstrap';
 import { FiMessageSquare } from 'react-icons/fi';
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Card, Badge } from 'react-bootstrap';
 import { FaCalendarAlt, FaNewspaper, FaArrowRight } from 'react-icons/fa';

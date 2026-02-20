@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar, MapPin, Tag, ChevronRight, Newspaper } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import  { useState, useEffect } from 'react';
+import { Calendar, MapPin, ChevronRight, Newspaper } from 'lucide-react';
 import Footer from '../components/Footer';
 import PostViewModal from '../components/PostViewModal';
 import FeaturedCarousel from '../components/FeaturedCarousel';

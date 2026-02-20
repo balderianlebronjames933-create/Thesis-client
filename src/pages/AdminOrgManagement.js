@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import * as bootstrap from 'bootstrap';
-import { Edit3, Trash2, Power, PlusCircle } from 'lucide-react';
+import { Edit3, Trash2, PlusCircle } from 'lucide-react';
 import { fetchAdminOrgs } from '../services/orgService';
 import OrgFormModal from '../components/OrgFormModal';
 import '../css/toggle.css';

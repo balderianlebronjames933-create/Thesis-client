@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../css/ActiveOrganizations.css';

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Trash2, ShieldAlert, Send } from 'lucide-react';
+import  { useState, useEffect, useCallback } from 'react';
+import { Trash2, Send } from 'lucide-react';
 import { useUser } from '../context/UserContext';
 
 const CommentSection = ({ postId, notyf }) => {

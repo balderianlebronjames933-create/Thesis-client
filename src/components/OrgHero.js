@@ -1,4 +1,4 @@
-import React from 'react';
+
 import HeroBg from '../assets/nso-bg.png';
 
 const OrgHero = () => {

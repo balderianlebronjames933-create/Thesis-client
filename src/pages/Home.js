@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import '../css/Home.css';
 import HeroSection from '../components/HeroSection';

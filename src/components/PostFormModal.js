@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Save, X, Calendar, MapPin, Tag, Star, Type } from 'lucide-react';
+import  { useState, useEffect, useRef } from 'react';
+import { Save, Calendar, MapPin, Tag, Star } from 'lucide-react';
 import * as bootstrap from 'bootstrap';
 
 const PostFormModal = ({ token, refreshData, notyf, editingPost, setEditingPost, organizations }) => {
