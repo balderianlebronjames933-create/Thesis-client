@@ -19,9 +19,9 @@ const Footer = () => {
               Connecting students through teams and engagements.
             </p>
             <div className="social-links d-flex gap-3 mt-3">
-              <a href="#" className="social-icon"><FaFacebook size={20} /></a>
+              {/* <a href="#" className="social-icon"><FaFacebook size={20} /></a>
               <a href="#" className="social-icon"><FaTwitter size={20} /></a>
-              <a href="#" className="social-icon"><FaInstagram size={20} /></a>
+              <a href="#" className="social-icon"><FaInstagram size={20} /></a> */}
             </div>
           </Col>
 
@@ -30,9 +30,9 @@ const Footer = () => {
             <h5 className="text-white fw-bold mb-4">Quick Links</h5>
             <ul className="list-unstyled footer-links">
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/movies">Movies & Orgs</Link></li>
-              <li><Link to="/about">About UNITE</Link></li>
-              <li><Link to="/privacy">Privacy Policy</Link></li>
+              <li><Link to="/organizations">Organizations</Link></li>
+              <li><Link to="/news">News & Events</Link></li>
+              {/* <li><Link to="/privacy">Privacy Policy</Link></li> */}
             </ul>
           </Col>
 
@@ -41,9 +41,9 @@ const Footer = () => {
             <h5 className="text-white fw-bold mb-4">Resources</h5>
             <ul className="list-unstyled footer-links">
               <li><a href="https://urs.edu.ph" target="_blank" rel="noreferrer">URS Official Website</a></li>
-              <li><a href="#">Student Handbook</a></li>
-              <li><a href="#">Org Application</a></li>
-              <li><a href="#">Event Calendar</a></li>
+              <li><a href="https://www.facebook.com/URSTaytayAdmissionAndScholarship" target="_blank" rel="noreferrer">URST Admission & Scholarship</a></li>
+              <li><a href="https://www.facebook.com/OfficeOfTheRegistrarURSTaytay" target="_blank" rel="noreferrer"> URST Office of the Registrar</a></li>
+
             </ul>
           </Col>
 
@@ -57,11 +57,11 @@ const Footer = () => {
               </li>
               <li className="d-flex mb-3">
                 <FaPhone className="me-3 text-primary" />
-                <span>+63 (02) 8661-XXXX</span>
+                <span>+63 991 635 7792</span>
               </li>
               <li className="d-flex mb-3">
                 <FaEnvelope className="me-3 text-primary" />
-                <span>unite.taytay@urs.edu.ph</span>
+                <span>balderianlebronjames@gmail.com</span>
               </li>
             </ul>
           </Col>

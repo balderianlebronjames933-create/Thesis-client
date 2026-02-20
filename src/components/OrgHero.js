@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroBg from '../assets/urst-bg.JPG';
+import HeroBg from '../assets/nso-bg.png';
 
 const OrgHero = () => {
     return (

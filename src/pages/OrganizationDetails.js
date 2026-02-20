@@ -25,7 +25,7 @@ const OrganizationDetails = () => {
                 <div 
                         className="position-absolute w-100 h-100" 
                         style={{ 
-                            backgroundImage: "url('../assets/nso-bg.png')",
+                            backgroundImage: `url(${org.banner})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             filter: 'brightness(0.7)'

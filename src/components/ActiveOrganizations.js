@@ -6,16 +6,16 @@ import '../css/ActiveOrganizations.css';
 const ActiveOrganizations = () => {
     // Note: I've added a few more mock items to demonstrate the 5-column grid
     const organizations = [
-        { id: 1, name: "University Supreme Student Government", image: "../assets/fes.png", link: "/organizations/698e9d176f38fe7964f19c55" },
-        { id: 2, name: "Computer Studies Society", image: "https://placehold.co/200x200?text=COMPSS", link: "/organizations/compss" },
-        { id: 3, name: "Junior Marketing Association", image: "https://placehold.co/200x200?text=JMA", link: "/organizations/jma" },
-        { id: 4, name: "Engineering Society", image: "https://placehold.co/200x200?text=ES", link: "/organizations/eng" },
-        { id: 5, name: "Arts & Sciences Guild", image: "https://placehold.co/200x200?text=ASG", link: "/organizations/asg" },
-        { id: 6, name: "Red Cross Youth", image: "https://placehold.co/200x200?text=RCY", link: "/organizations/rcy" },
-        { id: 7, name: "LIT Society", image: "https://placehold.co/200x200?text=LIT", link: "/organizations/lit" },
-        { id: 8, name: "Sports Council", image: "https://placehold.co/200x200?text=SC", link: "/organizations/sports" },
-        { id: 9, name: "Dance Troupe", image: "https://placehold.co/200x200?text=DT", link: "/organizations/dance" },
-        { id: 10, name: "Debate Society", image: "https://placehold.co/200x200?text=DS", link: "/organizations/debate" },
+        { id: 1, name: "University Supreme Student Government", image: "../assets/ussg.png", link: "/organizations/698e9d176f38fe7964f19c55" },
+        { id: 2, name: "Kinesthetic Dance Troupe", image: "../assets/kdt.png", link: "/organizations/698ed4a9845bd36fa09d16e0" },
+        { id: 3, name: "MUSICA", image: "../assets/musica.png", link: "/organizations/698ecefeb53a8450e5bf94e5" },
+        { id: 4, name: "BITS", image: "../assets/bits.logo.png", link: "/organizations/699272cf4d749adabbef8c4f" },
+        { id: 5, name: "NSO", image: "../assets/nso.logo.png", link: "/organizations/698ed9e43b16d40f30474022" },
+        { id: 6, name: "PLUMA", image: "../assets/pluma.logo.png", link: "/organizations/698ed9213b16d40f30473fee" },
+        { id: 7, name: "ROCK AND SALT", image: "../assets/rocksalt.logo.png", link: "/organizations/698eda1b3b16d40f30474028" },
+        { id: 8, name: "VOICES", image: "../assets/voices.logo.png", link: "/organizations/699272754d749adabbef8c44" },
+        { id: 9, name: "BEEEDS", image: "../assets/beeeds.logo.png", link: "/organizations/6997f92eb1e038318968d914" },
+       
     ];
 
     return (
