@@ -1,10 +1,14 @@
 .news-card {
   transition: transform 0.2s ease;
   cursor: pointer;
+  border-left: 4px solid #2951d6; /* Blue accent for news */
 }
 
 .news-card:hover {
-  transform: scale(1.01);
+  /* Use translateY for the "lift" effect */
+  transform: translateY(-8px) !important;
+  /* Use !important to beat Bootstrap's .shadow-sm */
+  box-shadow: 0 12px 24px rgba(41, 81, 214, 0.25) !important;
 }
 
 .news-image-placeholder {
@@ -22,6 +26,8 @@
   background: #fff;
   border: 1px solid #dee2e6;
   border-left: 4px solid #dc3545; /* Red accent for events */
+  border-right: 0.5px solid #dc3545;
+  border-bottom: 0.5px solid #dc3545;
   padding: 8px;
   min-width: 70px;
   border-radius: 4px;
@@ -30,6 +36,8 @@
 .event-item {
   border-bottom: 1px solid #eee;
   padding-bottom: 15px;
+  background-color: #fff;
+  border-radius: 6px;
 }
 
 .event-item:last-child {
@@ -40,12 +48,25 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.news-card:hover, .event-item:hover {
+.news-card:hover {
   transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(39, 121, 214, 0.678);
   /* Optional: add a slight shadow for news cards */
 }
+
+.event-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(238, 46, 56, 0.315);
+  /* Optional: add a slight shadow for news cards */
+}
+
+
 
 .event-item:hover .event-date-box {
   background-color: #dc3545; /* Makes the date box pop on hover */
   color: white;
 }
+
+.news-events-section {
+  background-color: #f3f0d3;
+} 

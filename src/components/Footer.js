@@ -15,7 +15,7 @@ const Footer = () => {
               <h3 className="fw-bold text-white">🎬 RottenMangoes</h3>
             </div>
             <p className="text-light-muted">
-              The official portal for student organizations at the University of Rizal System - Taytay. 
+              The official portal for student organizations at the University of Rizal System - Taytay.
               Connecting students through teams and engagements.
             </p>
             <div className="social-links d-flex gap-3 mt-3">
@@ -68,16 +68,16 @@ const Footer = () => {
         </Row>
 
         <hr className="footer-divider mt-5 mb-4" />
-        
+
         <Row className="align-items-center">
           <Col md={6} className="text-center text-md-start">
             <p className="mb-0 text-light-muted">
-              &copy; 2026 URS-Taytay UNITE. Built with ❤️ by MERN Devs.
+              &copy; 2026 URS-Taytay UNITE.
             </p>
           </Col>
           <Col md={6} className="text-center text-md-end mt-2 mt-md-0">
             <p className="mb-0 text-light-muted small">
-              University of Rizal System - Nurturing Tomorrow's Leaders.
+              University of Rizal System - Nurturing Tomorrow's Noblest.
             </p>
           </Col>
         </Row>

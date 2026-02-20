@@ -23,3 +23,17 @@
 .org-card:hover .org-image-wrapper img {
     transform: scale(1.1);
 }
+
+.org-hover-effect:hover .rounded-circle {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12) !important;
+    border-color: #0d6efd !important; /* Changes border to primary color on hover */
+}
+
+.org-hover-effect .card-title {
+    transition: color 0.3s ease;
+}
+
+.org-hover-effect:hover .card-title {
+    color: #0d6efd !important;
+}

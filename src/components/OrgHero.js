@@ -1,9 +1,11 @@
 import React from 'react';
+import HeroBg from '../assets/urst-bg.JPG';
 
 const OrgHero = () => {
     return (
-        <div className="position-relative overflow-hidden bg-dark text-white py-5 mb-5" style={{
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1541339907198-e08756ebafe3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")',
+        <div className="position-relative overflow-hidden bg-dark text-white py-5 mb-5" 
+        style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("${HeroBg}")`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             minHeight: '400px',

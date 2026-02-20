@@ -32,7 +32,7 @@ const NavbarComponent = ({ notyf }) => {
             <img src="/University_of_Rizal.png" width="40" height="40" className="me-2" alt="Logo" />
             UNITE
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="offcanvasNavbar" />
+          <Navbar.Toggle aria-controls="offcanvasNavbar" className='mx-2' />
           <Navbar.Offcanvas id="offcanvasNavbar" placement="end" className="solid-nav">
             <Offcanvas.Header closeButton className="border-bottom border-white-50">
               <Offcanvas.Title className="text-white">
@@ -51,17 +51,22 @@ const NavbarComponent = ({ notyf }) => {
                 <Nav.Link as={NavLink} to="/" className="text-white display-5">Home</Nav.Link>
 
 
-                  <Nav.Link as={NavLink} to="/organizations" className="text-white">
-                    {isAdmin ? 'Org Management' : 'About Organizations'}
-                  </Nav.Link>
+                <Nav.Link as={NavLink} to="/organizations" className="text-white">
+                  {isAdmin ? 'Org Management' : 'About Organizations'}
+                </Nav.Link>
 
 
                 {/* <Nav.Link as={Link} to="/organizations" className="text-white">About Organizations</Nav.Link> */}
                 {/* <Nav.Link as={Link} to="/" className="text-white">News & Events</Nav.Link> */}
 
-                <Nav.Link as={NavLink} to="/news" className="text-white">
-                  {isAdmin ? 'Post Management' : 'News & Events'}
-                </Nav.Link>
+                {/* In your Navbar Nav section */}
+                <Nav.Link as={NavLink} to="/news" className="text-white">News & Events</Nav.Link>
+
+                {isAdmin && (
+                  <Nav.Link as={NavLink} to="/admin/news" className="text-white fw-bold text-warning">
+                    Post Manager
+                  </Nav.Link>
+                )}
 
                 {/* CONSOLIDATED TAB LOGIC */}
                 {user ? (

@@ -81,7 +81,7 @@ const PostManager = ({ token, notyf, organizations }) => {
                             <p className="text-muted small mb-0">Control news updates and campus events</p>
                         </div>
                         <div className="col-md-5">
-                            <div className="input-group bg-light rounded-pill px-3">
+                            <div className="input-group bg-light rounded-pill px-3 my-2">
                                 <span className="input-group-text bg-transparent border-0 text-muted">
                                     <Search size={18} />
                                 </span>
@@ -93,17 +93,17 @@ const PostManager = ({ token, notyf, organizations }) => {
                                 />
                             </div>
                         </div>
-                        <div className="col-md-3 text-md-end">
-<button
-    className="btn btn-primary rounded-pill px-4 shadow-sm"
-    onClick={() => {
-        setEditingPost(null);
-        const modal = new bootstrap.Modal(document.getElementById('postModal'));
-        modal.show();
-    }}
->
-    <Plus size={18} className="me-1" /> Create Post
-</button>
+                        <div className="col-md-3 text-md-end my-2">
+                            <button
+                                className="btn btn-primary rounded-pill px-4 shadow-sm"
+                                onClick={() => {
+                                    setEditingPost(null);
+                                    const modal = new bootstrap.Modal(document.getElementById('postModal'));
+                                    modal.show();
+                                }}
+                            >
+                                <Plus size={18} className="me-1" /> Create Post
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@ const PostManager = ({ token, notyf, organizations }) => {
                 {/* Table Section */}
                 <div className="table-responsive">
                     <table className="table table-hover align-middle mb-0">
-                        <thead className="bg-light text-muted small text-uppercase">
+                        <thead className="bg-primary text-muted small text-uppercase">
                             <tr>
                                 <th className="ps-4">Content</th>
                                 <th>Type</th>
@@ -142,19 +142,44 @@ const PostManager = ({ token, notyf, organizations }) => {
                                                 <div className="fw-bold text-dark mb-0">{post.title}</div>
                                                 {/* ADD THIS SECTION: Display date/time for events */}
                                                 {post.type === 'event' && post.eventDate ? (
-                                                    <div className="text-primary small fw-semibold">
-                                                        📅 {new Date(post.eventDate).toLocaleString([], {
-                                                            month: 'short',
-                                                            day: 'numeric',
-                                                            year: 'numeric',
-                                                            hour: '2-digit',
-                                                            minute: '2-digit'
-                                                        })}
-                                                    </div>
+                                                    <>
+                                                        <div className="text-muted small">
+                                                            By: {post.author?.firstName} {post.author?.lastName}
+                                                        </div>
+                                                        <div className="text-muted small">
+                                                            Posted:  {new Date(post.createdAt).toLocaleString([], {
+                                                                month: 'short',
+                                                                day: 'numeric',
+                                                                year: 'numeric',
+                                                                hour: '2-digit',
+                                                                minute: '2-digit'
+                                                            })}
+                                                        </div>
+                                                        <div className="text-primary small fw-semibold">
+                                                            Event Date: {new Date(post.eventDate).toLocaleString([], {
+                                                                month: 'short',
+                                                                day: 'numeric',
+                                                                year: 'numeric',
+                                                                hour: '2-digit',
+                                                                minute: '2-digit'
+                                                            })}
+                                                        </div>
+                                                    </>
                                                 ) : (
-                                                    <div className="text-muted small">
-                                                        By: {post.author?.firstName} {post.author?.lastName}
-                                                    </div>
+                                                    <>
+                                                        <div className="text-muted small">
+                                                            By: {post.author?.firstName} {post.author?.lastName}
+                                                        </div>
+                                                        <div className="text-muted small">
+                                                            Posted on:  {new Date(post.createdAt).toLocaleString([], {
+                                                                month: 'short',
+                                                                day: 'numeric',
+                                                                year: 'numeric',
+                                                                hour: '2-digit',
+                                                                minute: '2-digit'
+                                                            })}
+                                                        </div>
+                                                    </>
                                                 )}
                                             </div>
                                         </div>
@@ -184,16 +209,16 @@ const PostManager = ({ token, notyf, organizations }) => {
                                     </td>
                                     <td className="text-end pe-4">
                                         <div className="btn-group shadow-sm rounded-3">
-<button
-    className="btn btn-white btn-sm px-3 border-end"
-    onClick={() => {
-        setEditingPost(post);
-        const modal = new bootstrap.Modal(document.getElementById('postModal'));
-        modal.show();
-    }}
->
-    <Edit size={16} className="text-primary" />
-</button>
+                                            <button
+                                                className="btn btn-white btn-sm px-3 border-end"
+                                                onClick={() => {
+                                                    setEditingPost(post);
+                                                    const modal = new bootstrap.Modal(document.getElementById('postModal'));
+                                                    modal.show();
+                                                }}
+                                            >
+                                                <Edit size={16} className="text-primary" />
+                                            </button>
                                             <button
                                                 className="btn btn-white btn-sm px-3"
                                                 data-bs-toggle="modal"

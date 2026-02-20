@@ -171,12 +171,7 @@
     padding: 0.5rem 1.5rem !important; /* Wider button */
   }
 
-      .nav-link.active::after {
-        width: 5px; /* Vertical line instead of underline on mobile */
-        height: 100%;
-        left: 0;
-        bottom: 0;
-    }
+
   
 }
 
@@ -187,15 +182,34 @@
     position: relative;
 }
 
-/* 2. Create the Underline using a pseudo-element */
-.nav-link.active::after {
-    content: '';
-    position: absolute;
-    width: 70%; /* Width of the underline */
-    height: 3px; /* Thickness */
-    bottom: 2px; /* Distance from the text */
-    left: 15%; /* Centers the 70% width underline */
-    background-color: var(--urs-gold);
-    border-radius: 2px;
+/* 2. Mobile View Styling (Offcanvas Sidebar) */
+@media (max-width: 991px) {
+    .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.05); /* Subtle highlight */
+    }
+    
+    .nav-link.active::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 15%;
+        height: 70%;
+        width: 4px;
+        background-color: var(--urs-gold);
+        border-radius: 0 4px 4px 0;
+    }
 }
 
+/* 3. Desktop View Styling (Top Navbar) */
+@media (min-width: 992px) {
+    .nav-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 15%;
+        width: 70%;
+        height: 3px;
+        background-color: var(--urs-gold);
+        border-radius: 2px;
+    }
+}

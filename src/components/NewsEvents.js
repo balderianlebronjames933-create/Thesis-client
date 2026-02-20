@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col, Card, Badge } from 'react-bootstrap';
 import { FaCalendarAlt, FaNewspaper, FaArrowRight } from 'react-icons/fa';
 import PostViewModal from './PostViewModal';
+import newsEventsBg from '../assets/news-events-bg.png';
 import '../css/NewsEvents.css';
 
-const NewsEvents = () => {
+const NewsEvents = ({ notyf }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -34,18 +35,25 @@ const NewsEvents = () => {
   // LOGIC: Get latest 2 News
   const latestNews = posts
     .filter(post => post.type === 'news')
-    .slice(0, 2);
+    .slice(0, 3);
 
   // LOGIC: Get latest 3 Upcoming Events (based on eventDate)
   const upcomingEvents = posts
     .filter(post => post.type === 'event' && new Date(post.eventDate) >= new Date())
     .sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate)) // Closest date first
-    .slice(0, 4);
+    .slice(0, 6);
 
   if (loading) return <div className="text-center py-5">Loading Campus Updates...</div>;
 
   return (
-    <section className="news-events-section py-5 bg-light">
+    <section 
+    className="news-events-section py-5"
+    style={{ 
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url(${newsEventsBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+    }}>
       <Container>
         <Row className="g-5">
           {/* Latest News Column */}
@@ -55,18 +63,20 @@ const NewsEvents = () => {
                 <FaNewspaper className="me-2 text-primary" size={24} />
                 <h2 className="fw-bold mb-0">Latest News</h2>
               </div>
-              <Link to="/news" className="text-primary text-decoration-none fw-bold small">
+              <Badge bg="primary" className="text-uppercase px-3 py-2 rounded-pill">
+              <Link to="/news" className="text-white text-decoration-none fw-bold small">
                 See More News <FaArrowRight size={12} className="ms-1" />
               </Link>
+              </Badge>
             </div>
             {latestNews.map(item => (
               <Card
                 key={item._id}
-                className="news-card mb-3 border-0 shadow-sm"
+                className="news-card mb-4  shadow-sm"
                 onClick={() => handleShowPost(item)}
                 style={{ cursor: 'pointer' }}
               >
-                <Row className="g-0">
+                <Row className="g-0 p-2">
                   <Col md={4}>
                     {item.image ? (
                       <img src={item.image} alt={item.title} className="img-fluid rounded-start h-100 object-fit-cover" />
@@ -100,9 +110,11 @@ const NewsEvents = () => {
                 <FaCalendarAlt className="me-2 text-danger" size={24} />
                 <h2 className="fw-bold mb-0">Upcoming Events</h2>
               </div>
-              <Link to="/news" className="text-danger text-decoration-none fw-bold small">
-                See All <FaArrowRight size={12} className="ms-1" />
+              <Badge bg="danger" className="text-uppercase px-3 py-2 rounded-pill">
+              <Link to="/news" className="text-white text-decoration-none fw-bold small">
+                See more Events <FaArrowRight size={12} className="ms-1" />
               </Link>
+              </Badge>
             </div>
             <div className="event-list">
               {upcomingEvents.map(event => {
@@ -110,7 +122,7 @@ const NewsEvents = () => {
                 return (
                   <div
                     key={event._id}
-                    className="event-item d-flex mb-4"
+                    className="event-item d-flex mb-3"
                     onClick={() => handleShowPost(event)}
                     style={{ cursor: 'pointer' }}
                   >

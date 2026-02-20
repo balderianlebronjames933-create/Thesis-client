@@ -35,19 +35,19 @@ const FeaturedCarousel = ({ posts, isLoading }) => {
 
     return (
         <div className="mx-4 my-4 shadow-2xl rounded-4 overflow-hidden">
-            <div 
-                id="featuredCarousel" 
-                className="carousel slide carousel-fade shadow-sm rounded-4 overflow-hidden" 
+            <div
+                id="featuredCarousel"
+                className="carousel slide carousel-fade shadow-sm rounded-4 overflow-hidden"
                 data-bs-ride="carousel"
             >
                 {/* Indicators */}
                 <div className="carousel-indicators">
                     {featuredPosts.map((_, idx) => (
-                        <button 
-                            key={idx} 
-                            type="button" 
-                            data-bs-target="#featuredCarousel" 
-                            data-bs-slide-to={idx} 
+                        <button
+                            key={idx}
+                            type="button"
+                            data-bs-target="#featuredCarousel"
+                            data-bs-slide-to={idx}
                             className={idx === 0 ? 'active' : ''}
                             aria-current={idx === 0 ? 'true' : 'false'}
                         ></button>
@@ -64,15 +64,15 @@ const FeaturedCarousel = ({ posts, isLoading }) => {
                                 alt={post.title}
                                 style={{ objectFit: 'cover' }}
                             />
-                            <div className="position-absolute top-0 start-0 w-100 h-100" 
-                                 style={{ background: 'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8))' }}></div>
-                            
-                            <div className="carousel-caption text-start d-none d-md-block pb-5">
-                                <h1 className="display-5 fw-bold text-white">{post.title}</h1>
-                                <div className="d-flex gap-3 mb-3 text-white-50">
+                            <div className="position-absolute top-0 start-0 w-100 h-100"
+                                style={{ background: 'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8))' }}></div>
+
+                            <div className="carousel-caption text-start pb-4 pb-md-5 px-2 px-md-0">
+                                <h1 className="display-5 fs-4 fw-bold text-white">{post.title}</h1>
+                                <div className="d-flex flex-column gap-1 mb-3 text-white">
                                     {post.type === 'event' && post.eventDate && (
-                                        <span className="d-flex align-items-center small">
-                                            <Calendar size={16} className="me-1" /> 
+                                        <span className="d-flex align-items-center x-small">
+                                            <Calendar size={14} className="me-1" />
                                             {new Date(post.eventDate).toLocaleDateString()}
                                         </span>
                                     )}
@@ -82,7 +82,7 @@ const FeaturedCarousel = ({ posts, isLoading }) => {
                                         </span>
                                     )}
                                 </div>
-                                <p className="lead text-white-50 mb-4 text-truncate" style={{ maxWidth: '80%' }}>
+                                <p className="lead text-white mb-4 text-truncate" style={{ maxWidth: '80%' }}>
                                     {post.content}
                                 </p>
                             </div>
