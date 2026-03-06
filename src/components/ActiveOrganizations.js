@@ -6,13 +6,13 @@ import '../css/ActiveOrganizations.css';
 const ActiveOrganizations = () => {
     // Note: I've added a few more mock items to demonstrate the 5-column grid
     const organizations = [
-        { id: 1, name: "University Supreme Student Government", image: "../assets/ussg.png", link: "/organizations/698ed98b3b16d40f30473ffa" },
-        { id: 2, name: "Kinesthetic Dance Troupe", image: "../assets/kdt.png", link: "/organizations/698ed4a9845bd36fa09d16e0" },
+        { id: 1, name: "USSG", image: "../assets/ussg.png", link: "/organizations/698ed98b3b16d40f30473ffa" },
+        { id: 2, name: "KDT", image: "../assets/kdt.png", link: "/organizations/698ed4a9845bd36fa09d16e0" },
         { id: 3, name: "MUSICA", image: "../assets/musica.png", link: "/organizations/698ecefeb53a8450e5bf94e5" },
         { id: 4, name: "BITS", image: "../assets/bits.logo.png", link: "/organizations/699272cf4d749adabbef8c4f" },
         { id: 5, name: "NSO", image: "../assets/nso.logo.png", link: "/organizations/698ed9e43b16d40f30474022" },
         { id: 6, name: "PLUMA", image: "../assets/pluma.logo.png", link: "/organizations/698ed9213b16d40f30473fee" },
-        { id: 7, name: "ROCK AND SALT", image: "../assets/rocksalt.logo.png", link: "/organizations/698eda1b3b16d40f30474028" },
+        { id: 7, name: "RS", image: "../assets/rocksalt.logo.png", link: "/organizations/698eda1b3b16d40f30474028" },
         { id: 8, name: "VOICES", image: "../assets/voices.logo.png", link: "/organizations/699272754d749adabbef8c44" },
         { id: 9, name: "BEEEDS", image: "../assets/beeeds.logo.png", link: "/organizations/6997f92eb1e038318968d914" },
         { id: 10, name: "FES", image: "../assets/fes.logo.png", link: "/organizations/698ed9663b16d40f30473ff4" },
