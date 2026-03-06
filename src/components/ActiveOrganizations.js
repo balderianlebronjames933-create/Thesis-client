@@ -15,6 +15,7 @@ const ActiveOrganizations = () => {
         { id: 7, name: "ROCK AND SALT", image: "../assets/rocksalt.logo.png", link: "/organizations/698eda1b3b16d40f30474028" },
         { id: 8, name: "VOICES", image: "../assets/voices.logo.png", link: "/organizations/699272754d749adabbef8c44" },
         { id: 9, name: "BEEEDS", image: "../assets/beeeds.logo.png", link: "/organizations/6997f92eb1e038318968d914" },
+        { id: 10, name: "FES", image: "../assets/fes.logo.png", link: "/organizations/698ed9663b16d40f30473ff4" },
        
     ];
 
