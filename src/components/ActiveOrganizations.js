@@ -6,7 +6,7 @@ import '../css/ActiveOrganizations.css';
 const ActiveOrganizations = () => {
     // Note: I've added a few more mock items to demonstrate the 5-column grid
     const organizations = [
-        { id: 1, name: "USSG (University Supreme Student Government)", image: "../assets/ussg.png", link: "/organizations/698ed98b3b16d40f30473ffa" },
+        { id: 1, name: "USSG", description: "University Supreme Student Government", image: "../assets/ussg.png", link: "/organizations/698ed98b3b16d40f30473ffa" },
         { id: 2, name: "KDT (Kinesthetic Dance Troupe)", image: "../assets/kdt.png", link: "/organizations/698ed4a9845bd36fa09d16e0" },
         { id: 3, name: "MUSICA (Melodious Union of Singers Inclined to the Culture and the Arts)", image: "../assets/musica.png", link: "/organizations/698ecefeb53a8450e5bf94e5" },
         { id: 4, name: "BITS (Building Innovation and Technology Society)", image: "../assets/bits.logo.png", link: "/organizations/699272cf4d749adabbef8c4f" },
